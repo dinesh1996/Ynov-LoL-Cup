@@ -3,6 +3,8 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400);
 /* fontawesome */
 @import url(http://weloveiconfonts.com/api/?family=fontawesome);
+@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800);
 [class*="fontawesome-"]:before {
   font-family: "FontAwesome", sans-serif; }
 
@@ -106,9 +108,11 @@ table caption {
   padding-bottom: 40px; }
 
 /* PARAMÈTRES GÉNÉRAUX */
+/* Montserrat font */
+/* Open sans font */
 body {
-  background-image: url(../img/bg.jpg);
-  font-family: "Oswald", sans-serif;
+  background-image: url(../img/bg2.png);
+  font-family: "Montserrat", sans-serif;
   color: #FFF; }
   body img {
     border-radius: 5px; }
@@ -390,7 +394,8 @@ body {
   color: #FFF; }
 
 .description {
-  font-size: 13px; }
+  font-size: 13px;
+  color: #FFF; }
 
 .m-t a {
   color: #e9a31c;

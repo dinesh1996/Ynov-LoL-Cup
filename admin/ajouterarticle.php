@@ -1,5 +1,8 @@
 <?php
 
+error_reporting(E_ALL);
+ini_set("display_errors", 1);
+
 session_start();
 
 if(!isset($_SESSION['user_id']) || !isset($_SESSION['logged_in'])){
@@ -26,7 +29,7 @@ if(isset($_POST['addpost'])){
   $categorie = !empty($_POST['categorie']) ? trim($_POST['categorie']) : null;
 
 
-  $sql = "INSERT INTO posts (id_student, contenu, categorie) VALUES (''$titre', ''$contenu', ''$categorie')";
+  $sql = "INSERT INTO posts (titre, contenu, categorie, auteur) VALUES ('$titre', '$contenu', '$categorie', '$auteur')";
   $stmt = $pdo->prepare($sql);
   $stmt->execute();
 
