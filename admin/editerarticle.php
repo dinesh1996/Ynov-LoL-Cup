@@ -10,6 +10,10 @@ elseif ($_SESSION['user_rang'] === "Arbitre") {
   header('Location: index.php');
   exit;
 }
+elseif ($_SESSION['user_rang'] === "Streamer") {
+  header('Location: index.php');
+  exit;
+}
 
 require '../connect.php';
 

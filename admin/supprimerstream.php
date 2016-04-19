@@ -17,8 +17,8 @@ elseif ($_SESSION['user_rang'] === "Streamer") {
 
 require '../connect.php';
 
-$sql = "DELETE FROM users WHERE id={$_GET['id']}";
+$sql = "DELETE FROM streams WHERE id={$_GET['id']}";
 $stmt = $pdo->prepare($sql);
 $stmt->execute();
 
-header ('Location: utilisateurs.php');
+header ('Location: twitch.php');

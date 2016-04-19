@@ -4,9 +4,9 @@ session_start();
 
 if(!isset($_SESSION['user_id']) || !isset($_SESSION['logged_in'])){
   header('Location: ../login.php');
-  exit;
+  exit; 
 }
-
+$data = $pdo->query("SELECT * FROM users ORDER BY id");
 ?>
 <!DOCTYPE html>
 <html lang="fr">

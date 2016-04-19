@@ -33,16 +33,6 @@ $posts = $pdo->query("SELECT id, titre, contenu, date_post FROM posts ORDER BY i
     <div class="row">
     </div>
   </div>
-  <div id="sponsors" class="col-lg-12 text-center">
-    <div class="row">
-      <ul>
-        <li><a href="#" target="_blank"><img src="img/partener.png"></a></li>
-        <li><a href="#" target="_blank"><img src="img/coca.png"></a></li>
-        <li><a href="#" target="_blank"><img src="img/fk.png"></a></li>
-        <li><a href="#" target="_blank"><img src="img/rog.png"></a></li>
-      </ul>
-    </div>
-  </div>
 </div>
 <div class="container">
   <div id="corps" class="row">
@@ -63,7 +53,6 @@ $posts = $pdo->query("SELECT id, titre, contenu, date_post FROM posts ORDER BY i
           Toulouse : dimanche 7 février 2016</p><br />
           <h2 class="text-center2">La compétition</h2>
           <p class="text-justify description">L'équipe gagnante de chaque ville et les 2 équipes finalistes Ynov, soient 8 équipes au total, se retrouvent dans les locaux d'Ynov Paris lors de la finale nationale. La finale sera commentée par le joueur Domingo et sera filmée pour la diffusion en direct.</p><br />
-
         </div>
         <div id="colonnedroite" class="col-md-4">
           <div>
@@ -75,6 +64,16 @@ $posts = $pdo->query("SELECT id, titre, contenu, date_post FROM posts ORDER BY i
           </div>
 
         </div>
+      </div>
+    </div>
+    <div id="sponsors" class="col-lg-12 text-center">
+      <div class="row">
+        <ul>
+          <li><a href="#" target="_blank"><img src="img/partener.png"></a></li>
+          <li><a href="#" target="_blank"><img src="img/coca.png"></a></li>
+          <li><a href="#" target="_blank"><img src="img/fk.png"></a></li>
+          <li><a href="#" target="_blank"><img src="img/rog.png"></a></li>
+        </ul>
       </div>
     </div>
     <?php include('includes/footer.php'); ?>
