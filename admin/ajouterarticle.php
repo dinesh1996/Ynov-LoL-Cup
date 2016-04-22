@@ -1,5 +1,8 @@
 <?php
 
+error_reporting(E_ALL);
+ini_set("display_errors", 1);
+
 session_start();
 
 if(!isset($_SESSION['user_id']) || !isset($_SESSION['logged_in'])){
@@ -25,12 +28,29 @@ if(isset($_POST['addpost'])){
   $contenu = !empty($_POST['contenu']) ? trim($_POST['contenu']) : null;
   $categorie = !empty($_POST['categorie']) ? trim($_POST['categorie']) : null;
 
+  $auteurid =  [$_SESSION['user_id']];
 
-  $sql = "INSERT INTO posts (id_student, contenu, categorie) VALUES (''$titre', ''$contenu', ''$categorie')";
+
+$sqlv = "SELECT username FROM users WHERE id LIKE ? ";
+$req = $pdo->prepare($sqlv);
+$req->execute($auteurid);
+
+
+$data = $req->fetch(PDO::FETCH_ASSOC);
+$data = $data['username'];
+
+
+
+
+
+
+  $sql = "INSERT INTO posts (titre, contenu, categorie, auteur) VALUES ('$titre', '$contenu', '$categorie', '$data')";
   $stmt = $pdo->prepare($sql);
   $stmt->execute();
 
-  echo "L'article a bien été ajouté'";
+
+  echo "L'article a bien été ajouté";
+  header('Location: articles.php');
 
 }
 ?>
@@ -66,8 +86,11 @@ if(isset($_POST['addpost'])){
     <div class="hipsum">
       <div class="jumbotron">
         <h1 id="hello,-world!">Ajouter un article</h1>
+
+
       </div>
       <div class="form-post">
+
         <form action="ajouterarticle.php" method="post" role="form">
           <div class="form-item">
             <label for="titre">Le titre :</label>

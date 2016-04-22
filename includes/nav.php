@@ -12,7 +12,6 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
                 <li><a href="index.php">Accueil</a></li>
-                <li><a href="competition.php">Compétition</a></li>
                 <li><a href="news.php">News</a></li>
                 <li><a href="tableaux.php">Tableaux des qualifications</a></li>
                 <li><a href="streams.php">Streams</a></li>

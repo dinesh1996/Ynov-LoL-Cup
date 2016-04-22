@@ -1,5 +1,6 @@
 <?php
-
+error_reporting(E_ALL);
+ini_set("display_errors", 1);
 session_start();
 
 if(!isset($_SESSION['user_id']) || !isset($_SESSION['logged_in'])){
@@ -18,35 +19,32 @@ if(isset($_POST['addcategorie'])){
   //Retrieve the field values from our registration form.
   $categorie = !empty($_POST['categorie']) ? trim($_POST['categorie']) : null;
 
+
+
   //Construct the SQL statement and prepare it.
-  $sql = "SELECT COUNT(categorie) AS num FROM categories WHERE nom = :nom";
-  $stmt = $pdo->prepare($sql);
+  $sqlv = "SELECT categorie FROM categories WHERE categorie LIKE ? ";
+  $req = $pdo->prepare($sqlv);
+  $req->execute(array($categorie));
+  $data = $req->fetch(PDO::FETCH_ASSOC);
+  var_dump($data);
 
-  //Bind the provided username to our prepared statement.
-  $stmt->bindValue(':nom', $categorie);
 
-  //Execute.
-  $stmt->execute();
 
-  //Fetch the row.
-  $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
-  //If the provided username already exists - display error.
-  //TO ADD - Your own method of handling this error. For example purposes,
-  //I'm just going to kill the script completely, as error handling is outside
-  //the scope of this tutorial.
-  if($row['num'] > 0){
-    die('Une catégorie porte déja ce nom');
-  }
+  if($data){
+    echo ('Une catégorie porte déja ce nom');
+    echo '<script language="JavaScript" type="text/javascript">window.location.replace("articles.php");</script>';
+}else {
 
-  $sql = "INSERT INTO categories (nom) VALUES (:nom)";
-  $stmt = $pdo->prepare($sql);
 
-  //Bind our variables.
-  $stmt->bindValue(':nom', $categorie);
 
-  //Execute the statement and insert the new account.
-  $result = $stmt->execute();
+
+
+    $sql = "INSERT INTO categories (categorie) VALUES ('$categorie')";
+    $result = $pdo->prepare($sql);
+    $result->execute();
+
+}
 
   //If the signup process is successful.
   if($result){

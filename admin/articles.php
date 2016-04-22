@@ -66,6 +66,7 @@ $users = $pdo->query("SELECT * FROM posts ORDER BY id");
                     <th>Titre</th>
                     <th>Auteur</th>
                     <th>Date</th>
+                    <th>categorie</th>
                     <th>Actions</th>
                   </tr>
                 </thead>
@@ -77,7 +78,9 @@ $users = $pdo->query("SELECT * FROM posts ORDER BY id");
                       </th>
                       <td><?php echo $data['auteur']; ?></td>
                       <td><?php echo $data['date_post']; ?></td>
-                      <td><?php echo "<a href='editerarticle.php?id={$data["id"]}'>Editer</a>"; ?> / <a href="">Supprimer</a></td>
+                      <td><?php echo $data['categorie']; ?></td>
+
+                      <td><?php echo "<a href='editerarticle2.php?id={$data["id"]}'>Editer</a>"; ?> / <?php echo "<a href='supprimeracticle.php?id={$data["id"]}'>supprimer</a>"; ?></td>
                     <?php endforeach ?>
                   </tr>
                 </tbody>

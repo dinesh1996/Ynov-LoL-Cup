@@ -11,72 +11,32 @@ require '../lib/password.php';
 
 require '../connect.php';
 
+$users = $pdo->query("SELECT * FROM users WHERE id={$_SESSION['user_id']}");
 
-if(isset($_POST['register'])){
+if(isset($_POST['majcompte'])){
 
-  //Retrieve the field values from our registration form.
-  $username = !empty($_POST['username']) ? trim($_POST['username']) : null;
-  $nom = !empty($_POST['nom']) ? trim($_POST['nom']) : null;
-  $prenom = !empty($_POST['prenom']) ? trim($_POST['prenom']) : null;
   $pass = !empty($_POST['password']) ? trim($_POST['password']) : null;
-  $email = !empty($_POST['email']) ? trim($_POST['email']) : null;
-  $rang = !empty($_POST['rang']) ? trim($_POST['rang']) : null;
+  $passconfirm = !empty($_POST['passwordconfirm']) ? trim($_POST['passwordconfirm']) : null;
 
-  //TO ADD: Error checking (username characters, password length, etc).
-  //Basically, you will need to add your own error checking BEFORE
-  //the prepared statement is built and executed.
-
-  //Now, we need to check if the supplied username already exists.
-
-  //Construct the SQL statement and prepare it.
-  $sql = "SELECT COUNT(username) AS num FROM users WHERE email = :email";
-  $stmt = $pdo->prepare($sql);
-
-  //Bind the provided username to our prepared statement.
-  $stmt->bindValue(':email', $email);
-
-  //Execute.
-  $stmt->execute();
-
-  //Fetch the row.
-  $row = $stmt->fetch(PDO::FETCH_ASSOC);
-
-  //If the provided username already exists - display error.
-  //TO ADD - Your own method of handling this error. For example purposes,
-  //I'm just going to kill the script completely, as error handling is outside
-  //the scope of this tutorial.
-  if($row['num'] > 0){
-    die('Un compte avec cette adresse email existe déjà!');
-  }
-
+if($pass === $passconfirm){
   //Hash the password as we do NOT want to store our passwords in plain text.
   $passwordHash = password_hash($pass, PASSWORD_BCRYPT, array("cost" => 12));
 
-  //Prepare our INSERT statement.
-  //Remember: We are inserting a new row into our users table.
-  $sql = "INSERT INTO users (username, nom, prenom, password, email, rang) VALUES (:username, :nom, :prenom, :password, :email, :rang)";
+  $sql = "UPDATE users SET password = :password WHERE id={$_SESSION['user_id']}";
   $stmt = $pdo->prepare($sql);
 
-  //Bind our variables.
-  $stmt->bindValue(':username', $username);
-  $stmt->bindValue(':nom', $nom);
-  $stmt->bindValue(':prenom', $prenom);
   $stmt->bindValue(':password', $passwordHash);
-  $stmt->bindValue(':email', $email);
-  $stmt->bindValue(':rang', $rang);
 
-
-  //Execute the statement and insert the new account.
   $result = $stmt->execute();
 
-  //If the signup process is successful.
   if($result){
     //What you do here is up to you!
-    echo "L'inscription s'est bien déroulé.";
+    echo "Le compte a bien été mis à jour";
+    exit;
   }
-
 }
-
+  echo "Les 2 mots de passe ne correspondent pas.";
+}
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -111,34 +71,32 @@ if(isset($_POST['register'])){
       <div class="jumbotron">
         <h1 id="hello,-world!">Informations concernant mon compte</h1>
       </div>
+      <?php foreach ($users as $user): ?>
       <div class="form-wrapper">
-        <form action="ajouterutilisateur.php" method="post" role="form">
+        <form action="moncompte.php" method="post" role="form">
           <div class="form-item">
             <label for="username"></label>
-            <input type="text" id="username" name="username" required="required" placeholder="Identifiant"></input>
+            <input type="text" id="username" name="username" required="required" disabled value="<?php echo $user['username']; ?>"></input>
           </div>
           <div class="form-item">
             <label for="nom"></label>
-            <input type="text" id="nom" name="nom" required="required" placeholder="Nom"></input>
+            <input type="text" id="nom" name="nom" required="required" disabled value="<?php echo $user['nom']; ?>"></input>
           </div>
           <div class="form-item">
             <label for="prenom"></label>
-            <input type="text" id="prenom" name="prenom" required="required" placeholder="Prenom"></input>
-          </div>
-          <div class="form-item">
-            <label for="password"></label>
-            <input type="password" id="password" name="password" required="required" placeholder="Mot de passe"></input>
+            <input type="text" id="prenom" name="prenom" required="required" disabled value="<?php echo $user['prenom']; ?>"></input>
           </div>
           <div class="form-item">
             <label for="email"></label>
-            <input type="email" id="email" name="email" required="required" placeholder="Adresse email"></input>
+            <input type="email" id="email" name="email" required="required" disabled value="<?php echo $user['email']; ?>"></input>
           </div>
           <div class="form-item">
-            <select id="rang" name="rang">
-              <option value="Administrateur">Administrateur</option>
-              <option value="Streamer">Streamer</option>
-              <option value="Arbitre">Arbitre</option>
-            </select>
+            <label for="password"></label>
+            <input type="password" id="password" name="password" required="required" placeholder="Tapez à nouveau votre mot de passe"></input>
+          </div>
+          <div class="form-item">
+            <label for="passwordconfirm"></label>
+            <input type="password" id="passwordconfirm" name="passwordconfirm" required="required" placeholder="Confirmer votre nouveau mot de passe"></input>
           </div>
           <div class="button-panel">
             <input type="submit" name="majcompte" class="button" title="Mettre à jour mon compte" value="Mettre à jour mon compte"></button>
@@ -148,6 +106,7 @@ if(isset($_POST['register'])){
           <p><a href="faq.php#CreationUtilisateur">Besoin d'aide dans la mise à jour de votre compte ?</a></p>
         </div>
       </div>
+      <?php endforeach; ?>
     </div>
   </div>
   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

@@ -12,27 +12,22 @@
         <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
     </head>
     <body>
-
         <!-- DEBUT DE LA NAVBAR -->
         <span id="TopSite"></span>
         <?php include('includes/nav.php'); ?>
-
         <!-- FIN DE LA NAVBAR -->
-
         <div class="logo">
             <img src="img/logo-top.png" class="img-responsive">
             <p>Du 30 novembre 2015 au 12 mars 2016</p>
         </div>
         <div id="stream" class="container">
-            <div class="col-lg-8">
+            <div class="col-lg-offset-2 col-lg-8">
                 <!-- 16:9 aspect ratio -->
                 <div class="embed-responsive embed-responsive-16by9">
                     <iframe class="embed-responsive-item" src="http://player.twitch.tv/?channel=domingo" frameborder="0" scrolling="no" height="378" width="620"></iframe>
                 </div>
-            </div>
-            <div class="col-lg-4">
-                <div>
-                    <iframe src="http://www.twitch.tv/domingo/chat?popout=" frameborder="0" scrolling="no" height="500" width="350"></iframe>
+                <div class="corpscompet">
+                    <p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam architecto assumenda at beatae blanditiis, consequuntur est eum magnam nemo neque placeat possimus provident, quidem repellendus temporibus veniam vitae voluptatem. Dolores!</p>
                 </div>
             </div>
         </div>
