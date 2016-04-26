@@ -221,7 +221,8 @@ body {
   background: #fafafa;
   margin: 3em auto;
   padding: 0 1em;
-  max-width: 500px; }
+  max-width: 500px;
+  border-radius: 10px; }
 
 h1 {
   text-align: center;

@@ -24,7 +24,8 @@ body {
   background: #fafafa;
   margin: 3em auto;
   padding: 0 1em;
-  max-width: 500px; }
+  max-width: 500px;
+  border-radius: 10px; }
 
 h1 {
   text-align: center;
@@ -111,7 +112,7 @@ table caption {
 /* Montserrat font */
 /* Open sans font */
 body {
-  background-image: url(../img/bg2.png);
+  background-image: url(../img/bg.jpg);
   font-family: "Montserrat", sans-serif;
   color: #FFF; }
   body img {
@@ -249,7 +250,7 @@ body {
 /* CORPS */
 #corps {
   color: #000;
-  margin-top: 0px;
+  margin-top: 40px;
   position: relative;
   background-color: rgba(255, 255, 255, 0.2);
   border-radius: 5px;
@@ -403,5 +404,41 @@ body {
   .m-t a:hover {
     color: #FFF;
     text-decoration: none; }
+
+.post h2 {
+  text-decoration: none;
+  color: #f1c40f;
+  font-size: 25pt;
+  padding-top: 20px; }
+  .post h2 a {
+    text-decoration: none;
+    color: #f1c40f;
+    font-size: 25pt; }
+.post ul {
+  color: #e74c3c;
+  font-size: 12pt;
+  list-style: none;
+  padding-top: 15px; }
+  .post ul li {
+    padding-top: 15px; }
+    .post ul li a {
+      text-decoration: none;
+      color: #e74c3c; }
+  .post ul .fa {
+    font-size: 18px; }
+.post p {
+  color: #ecf0f1;
+  font-size: 16pt;
+  padding-top: 25px;
+  line-height: 28px;
+  text-align: justify; }
+  .post p a {
+    color: #95a5a6;
+    text-decoration: none; }
+.post .button {
+  margin-top: 20px; }
+
+.videos {
+  padding-top: 30px; }
 
 /*# sourceMappingURL=style.css.map */
