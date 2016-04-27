@@ -1,0 +1,350 @@
+@import "form"
+
+/* PARAMÈTRES GÉNÉRAUX
+
+/* Montserrat font
+@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700)
+
+/* Open sans font
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800)
+
+
+body
+  background-image: url(../img/bg.jpg)
+  font-family: 'Montserrat', sans-serif
+  color: #FFF
+  img
+    border-radius: 5px
+
+.logo
+  margin-left: 50px
+  margin-top: 20px
+  p
+    margin-top: -80px
+    margin-left: 135px
+    font-size: 20px
+    padding-bottom: 30px
+
+/* CODE NAVBAR
+
+.navbar
+  margin-bottom: 0
+  font-size: 14px
+
+.navbar-custom
+  background-color: rgba(0, 0, 0, 0.1)
+  color: #e9a31c
+  .navbar-nav > li > a
+    color: #e9a31c
+    padding-left: 20px
+    padding-right: 20px
+  .navbar-right > li > a
+    color: #e9a31c
+    padding-left: 10px
+    padding-right: 10px
+  .navbar-nav > .active > a
+    color: #FFF
+    background-color: transparent
+
+.navbar-nav > .active > a:hover
+  color: #FFF
+  background-color: transparent
+
+.navbar-custom
+  .navbar-nav > li > a:hover
+    color: #FFF
+    background-color: transparent
+  .navbar-brand
+    img
+      margin-left: 10px
+      margin-top: -30px
+      position: relative
+    &:hover
+      color: #e9a31c
+  .navbar-toggle
+    background-color: transparent
+  .icon-bar
+    background-color: #FFF
+  .dropdown-menu
+    background-color: transparent
+    color: #e9a31c
+    text-decoration: none
+    border-color: #e9a31c
+    text-align: center
+    min-width: 130px
+    li a
+      background-color: #1e0a15
+      color: #e9a31c
+  .dropdown
+    > a
+      background-color: transparent
+      color: #FFF
+      &:focus, &:hover
+        background-color: transparent
+        color: #FFF
+    ul
+      li a
+        color: #e9a31c
+        background-color: rgba(0, 0, 0, 0.8)
+        &:hover
+          color: #e9a31c
+          background-color: #FFF
+      border-radius: 0
+
+/* CONTAINER SLIDER
+
+#slider
+  margin-top: 70px
+
+.col-sm-6
+  padding: 0
+  h2
+    bottom: 60px
+    left: 30px
+    position: absolute
+    text-decoration: none
+    background-color: rgba(0, 0, 0, 0.3)
+    padding: 5px 5px 5px 5px
+  p
+    bottom: 30px
+    left: 30px
+    position: absolute
+    text-decoration: none
+    background-color: rgba(0, 0, 0, 0.3)
+    padding: 5px 5px 5px 5px
+  a
+    color: #FFF
+    &:hover
+      color: #e9a31c
+
+.col-sm-3
+  padding: 0
+  h3
+    bottom: 70px
+    left: 30px
+    position: absolute
+    text-decoration: none
+    background-color: rgba(0, 0, 0, 0.3)
+    padding: 5px 5px 5px 5px
+  p
+    bottom: 20px
+    left: 30px
+    position: absolute
+    text-decoration: none
+    background-color: rgba(0, 0, 0, 0.3)
+    padding: 5px 5px 5px 5px
+  a
+    color: #FFF
+    &:hover
+      color: #e9a31c
+
+#sponsors
+  background-color: rgba(0, 0, 0, 0.3)
+  position: relative
+  margin-bottom: 30px
+  margin-top: 30px
+  padding-top: 20px
+  padding-bottom: 20px
+  li
+    display: inline
+    list-style: none
+    margin: 10px
+
+/* CORPS
+
+#corps
+  color: #000
+  margin-top: 40px
+  position: relative
+  background-color: rgba(255, 255, 255, 0.2)
+  border-radius: 5px
+  padding-bottom: 20px
+  a
+    text-decoration: none
+    color: #e9a31c
+
+#blog-1
+  background-color: #FFF
+  margin-top: 20px
+  margin-left: 25px
+  margin-right: 25px
+  padding-left: 0px
+  padding-right: 0px
+  border-radius: 5px
+  .divider
+    height: 1px
+    margin: 0px 0
+    overflow: hidden
+    background-color: #e9a31c
+
+.titreblog
+  font-size: 20px
+  padding-top: 10px
+  padding-left: 10px
+  padding-right: 10px
+
+.contenublog
+  font-size: 14px
+  padding-left: 10px
+  padding-right: 10px
+  padding-bottom: 10px
+
+.bordure
+  border-bottom: 2px solid #696969
+
+.piedblog
+  font-size: 9px
+  color: #e9a31c
+  padding-top: 10px
+  padding-left: 10px
+  padding-right: 10px
+  font-style: italic
+
+.fa
+  color: #e9a31c
+  font-size: 13px
+  &:hover
+    color: #FFF
+    font-size: 13px
+
+.article
+  padding-right: 10px
+
+.text-center
+  text-align: center
+  font-size: 14px
+  color: #FFF
+
+.col-md-offset-1
+  margin-left: 20px
+  margin-right: 20px
+
+#footer
+  /*
+   *background-color: rgba(0, 0, 0, 0.3);
+  font-size: 18px
+  position: relative
+  margin: 0px
+  padding-top: 20px
+  padding-bottom: 20px
+  li
+    display: inline
+    list-style: none
+    margin: 10px
+  .fa
+    font-size: 22px
+
+#logofooter
+  text-align: center
+  padding-bottom: 20px
+
+.loginscreen.middle-box
+  width: 300px
+
+.middle-box
+  max-width: 400px
+  z-index: 100
+  margin: 0 auto
+  padding-top: 40px
+
+.fullscreen-ibox-mode .animated
+  animation: none
+
+#colonnedroite
+  background-color: rgba(0, 0, 0, 0.5)
+  padding-top: 5px
+  padding-bottom: 15px
+  margin-left: -20px
+  margin-top: 20px
+
+.titrevideodroite
+  font-size: 20px
+  padding-left: 10px
+  padding-right: 10px
+  padding-top: 0px
+  color: #FFF
+
+#revenirhaut a
+  text-decoration: none
+  color: #e9a31c
+  &:hover
+    text-decoration: none
+    color: #FFF
+
+.btn-custom
+  background-color: #3B6AB0
+  margin-bottom: 20px
+
+/* TWITCH
+
+#stream, #challonge, #qualif
+  margin-top: 50px
+  margin-bottom: 50px
+
+#ligne1
+  margin-bottom: 30px
+
+#corpscompet
+  color: #FFF
+  margin-top: 30px
+  margin-bottom: 20px
+  position: relative
+  background-color: rgba(255, 255, 255, 0.2)
+  padding: 0 20px 0px 20px
+  a
+    text-decoration: none
+    color: #e9a31c
+
+.text-center2
+  text-align: center
+  font-size: 26px
+  color: #FFF
+
+.description
+  font-size: 13px
+  color: #FFF
+
+.m-t a
+  color: #e9a31c
+  text-decoration: none
+  &:hover
+    color: #FFF
+    text-decoration: none
+
+.post
+  h2
+    text-decoration: none
+    color: #f1c40f
+    font-size: 25pt
+    padding-top: 20px
+    a
+      text-decoration: none
+      color: #f1c40f
+      font-size: 25pt
+  ul
+    color: #e74c3c
+    font-size: 12pt
+    list-style: none
+    padding-top: 15px
+    li
+      padding-top: 15px
+      a
+        text-decoration: none
+        color: #e74c3c
+    .fa
+      font-size: 18px
+
+  p
+    color: #ecf0f1
+    font-size: 16pt
+    padding-top: 25px
+    line-height: 28px
+    text-align: justify
+    a
+      color: #95a5a6
+      text-decoration: none
+  .button
+    margin-top: 20px
+
+.videos
+  padding-top: 30px
